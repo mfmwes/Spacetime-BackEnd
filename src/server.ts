@@ -1,9 +1,12 @@
 import fastify from "fastify";
-import { PrismaClient } from "@prisma/client";
+import cors from "@fastify/cors";
 import { MemoriesRoutes } from "./routes/memories";
 
 const app = fastify();
 
+app.register(cors, {
+  origin: true,
+});
 app.register(MemoriesRoutes);
 
 app
